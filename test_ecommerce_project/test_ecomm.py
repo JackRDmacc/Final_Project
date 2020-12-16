@@ -19,6 +19,13 @@ class MyTestCase(unittest.TestCase):
     def test_customer_name_output(self):
         self.assertEqual(self.cust.name_output(), "Reser, Jack")
 
+    def test_cart_add_item(self):
+        self.cart.add_item("Toy", 9.99)
+        self.assertEqual(self.cart.item_list, ["Toy"])
+        self.assertEqual(self.cart.price_list, [9.99])
+
+
+
 
 
 
