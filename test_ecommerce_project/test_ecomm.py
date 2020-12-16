@@ -28,6 +28,13 @@ class MyTestCase(unittest.TestCase):
         self.cart.price_list = [23.99, 15.23, 20.21]
         assert self.cart.total_prices() == 59.43
 
+    def test_empty_cart(self):
+        self.cart.price_list = [23.99, 15.23, 20.21]
+        self.cart.item_list = ["Toy", "Purse", "Socks"]
+        self.cart.empty_cart()
+        assert self.cart.price_list == []
+        assert self.cart.item_list == []
+
 
 if __name__ == '__main__':
     unittest.main()
