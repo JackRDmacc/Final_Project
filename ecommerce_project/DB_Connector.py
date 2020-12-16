@@ -78,7 +78,7 @@ if __name__ == '__main__':
     pass
 
     # delete customerDBMS.db and
-    # uncomment these bottom 2 lines to rebuild customer database and table
+    # uncomment these bottom 2 lines to rebuild a new customer database and table
 
     # conn = create_connection("customerDBMS.db")
     # create_tables(conn)
