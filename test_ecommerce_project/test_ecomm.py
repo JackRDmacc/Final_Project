@@ -24,9 +24,9 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(self.cart.item_list, ["Toy"])
         self.assertEqual(self.cart.price_list, [9.99])
 
-
-
-
+    def test_cart_total_prices(self):
+        self.cart.price_list = [23.99, 15.23, 20.21]
+        assert self.cart.total_prices() == 59.43
 
 
 if __name__ == '__main__':
