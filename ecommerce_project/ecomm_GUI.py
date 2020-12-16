@@ -99,29 +99,30 @@ class ecomm_GUI:
                     text += "{}     ".format(col)
                 text += "\n"
             self.l_table_data.configure(text=text)
-            self.viewing_customers = True
+            self.viewing_customers = True  # update tracker
         else:
-            self.l_table_data.configure(text="")
-            self.viewing_customers = False
+            self.l_table_data.configure(text="")  # reset field
+            self.viewing_customers = False  # update tracker
 
     # this method adds an item to the cart
     def add_item(self):
+        # reset fields
         self.l_checkout_date.configure(text="")
         self.l_cart_subtotal.configure(text="")
         self.l_cart_tax.configure(text="")
         self.l_cart_total.configure(text="")
-        try:
+        try:  # input validation
             num = float(self.e_item_price.get())
-            self.cart_been_viewed = False
-            self.l_customer_name.configure(text="")
-            self.l_cart_data.configure(text="")
+            self.cart_been_viewed = False  # update tracker
+            self.l_customer_name.configure(text="")  # reset field
+            self.l_cart_data.configure(text="")  # reset field
             item_name = self.e_item_name.get()
             item_price = float(self.e_item_price.get())
             self.customer.cart.add_item(item_name, item_price)  # calls the cart class add_item method
             self.l_item_added.configure(text="Item Added: " + item_name + ", $" + str("{:.2f}".format(item_price)))
             self.e_item_name.delete(0, tkinter.END)
             self.e_item_price.delete(0, tkinter.END)
-        except ValueError:  # input validation
+        except ValueError:  # exception handling
             self.l_item_added.configure(text="Invalid Input")
             self.e_item_name.delete(0, tkinter.END)
             self.e_item_price.delete(0, tkinter.END)
@@ -142,7 +143,7 @@ class ecomm_GUI:
 
     # this method displays all cart contents
     def view_cart(self):
-        self.cart_been_viewed = True
+        self.cart_been_viewed = True  # update tracker
         text = self.customer.cart.view_items()
         total = self.customer.cart.total_prices()
         output = text + "Cart Total: $" + "{:.2f}".format(total)
