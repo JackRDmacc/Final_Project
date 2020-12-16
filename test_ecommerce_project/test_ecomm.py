@@ -16,6 +16,9 @@ class MyTestCase(unittest.TestCase):
         self.cust.cart.price_list = [10.34,44.33,7.99]
         self.assertEqual(round(self.cust.check_out(), 2), 67.05)
 
+    def test_customer_name_output(self):
+        self.assertEqual(self.cust.name_output(), "Reser, Jack")
+
 
 
 
